@@ -2,3 +2,4 @@ interface:
   display_name: "Replica Diff"
   short_description: "comparing a clone with its original, checking feature parity"
   default_prompt: "Use $replica-diff for the diff stage of my independent app."
+

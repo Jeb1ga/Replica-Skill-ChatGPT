@@ -1,11 +1,18 @@
 ---
 name: replica-diff
-description: Use when comparing a clone with its original, checking feature parity, identifying gaps and measuring screenshot layout differences.
+description: >-
+  Compares an app clone against the original: a feature parity score from the
+  feature matrix (weighted by must, should, could) with the missing list in
+  build order, plus a screenshot layout diff that ignores colour so a rebrand
+  does not count against you. Two standard-library Python tools. Use when the
+  user says "how close is my clone", "compare it to the original", "what's
+  missing", "parity check", "diff the screens", "is it ready", or after
+  @replica-test.
 ---
 
 # replica-diff
 
-Two tools in this skill folder, both standard-library Python, no installs:
+Two tools in this folder, both standard-library Python, no installs:
 
 ```bash
 python3 <skill-root>/parity.py replica/features.csv                         # feature parity + missing list
@@ -85,21 +92,12 @@ Give honest numbers. A clone at 62% is at 62%.
 Then `@replica-build` for the gaps, or `@replica-entrepreneur` if parity is
 there.
 
+## ChatGPT compatibility
 
-## ChatGPT execution contract
+Use available tools under their actual access and credential rules. Research public information with web search; interact with accounts only when authorized. Never invent reviews, screenshots, test results or parity scores. Follow quotation limits. Verify current provider, store and hosting requirements. Preserve the user's existing stack; use Sites skills for complete websites when applicable.
 
+Resolve `<skill-root>` to this skill's installed folder. Resolve another named skill independently through the skill catalog; do not assume installed folders stay adjacent. Run tools with Python from the app project directory. Templates remain beside SKILL.md; copy them into the project before customizing. Keep repository work in its repository; use Library for standalone deliverables when available.
 
-Apply these adaptations throughout this workflow:
+A partial must-have blocks shipping. Without screenshots, mark layout unassessed. Tool scores alone do not establish readiness. Complete authorized work without repeated confirmations; prepare preflight before requesting any new production authorization. Real purchases and outreach require explicit permission.
 
-- Discover available tools. Use web search for public research and current facts, GitHub for repository work, and browser interaction under its access rules. Never invent tools, visits, screenshots, reviews or checks.
-- Use Sites building and hosting skills for complete websites when applicable. Preserve existing repository stacks, including native Kotlin or Swift. Verify current API, pricing, store and hosting requirements from official sources; reference defaults and lint limits are starting points.
-- Study public pages, screenshots, docs and authorized account views. Write implementation fresh. Exclude proprietary code, private endpoints, target identity and licensed content.
-- Resolve `<skill-root>` to this skill's actual directory. Run Python tools with `python3 <skill-root>/<tool>.py` from the project directory. Run `--help` for exact arguments. Tools use the standard library. Templates and tools are in this skill folder; themes.json is beside reviews.py. Copy templates into the project before editing; leave installed resources unchanged.
-- Keep project evidence in `replica/`. Save standalone deliverables with the Library skill. Keep repository-backed project files in their repository.
-- Preserve source links, collection dates, sample sizes and uncertainty. Follow quotation limits; use short cited excerpts rather than redistributing whole reviews. Never use competitor reviews as testimonials.
-- Record features as yes, partial, no or skip with reasons. A partial must-have blocks shipping. Missing screenshots mean no measured layout score. A final shippable verdict also requires verified core flows, feature score 80+, and no open S1/S2 bugs. Scores alone do not establish readiness.
-- Use test credentials and payment test mode. Keep secrets out of chat, output and tracked files. Follow the account and credential handling rules of actual tools.
-- Complete authorized work without repeated confirmations. Finish a reviewable preflight before asking for any new approval. Publish within existing authorization. Do not send outreach, buy domains or make real purchases without explicit authorization.
-
-
-For tools belonging to another stage, resolve that named skill independently from the installed skill catalog, or use the sibling folder in this source repository. Do not assume installed skills retain neighboring folder names. If the other skill is unavailable, report that dependency and continue independent work.
+Adapted from Jake Schincariol's [Replica](https://github.com/Jakeschincariol/replica-skill), MIT licensed. Retain the included LICENSE.

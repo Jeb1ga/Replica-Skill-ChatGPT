@@ -1,61 +1,221 @@
-# Replica-Skill-Chatgpt
+# The Replica skill — ChatGPT variant
 
-Eleven separate skills adapted for ChatGPT and Codex from [Jake Schincariol’s Replica](https://github.com/Jakeschincariol/replica-skill). Rebuild app functionality with fresh code, assets and branding.
+Eleven ChatGPT skills that clone any app. Free, MIT, no signup, no API key,
+nothing to connect for the bundled Python tools.
 
-## Skills
+Adapted from [Jake Schincariol’s original Replica skill](https://github.com/Jakeschincariol@replica-skill). Original work: Copyright (c) 2026 Jake Schincariol, MIT License. The workflows, examples, tools and templates are preserved closely; platform instructions are adapted for ChatGPT and Codex. This is an independent adaptation, not an official OpenAI product.
 
-| Skill | Purpose |
-| --- | --- |
-| `@replica-recon` | rebuilding an app and mapping its screens, flows, components, inferred data model and features from public sources or authorized account views |
-| `@replica-architect` | planning a clone from its recon map, choosing a stack, database schema, API routes and build milestones |
-| `@replica-design` | rebuilding a clone design system, defining color roles, type, spacing, accessible components and design tokens |
-| `@replica-build` | implementing a clone from recon and design specs, building its shell, core flow, screens and all interaction states |
-| `@replica-backend` | adding auth, database access rules, payments, email, jobs and official integrations to an app clone |
-| `@replica-test` | testing an app clone, checking its user flows, reproducing bugs and writing end-to-end regression tests |
-| `@replica-diff` | comparing a clone with its original, checking feature parity, identifying gaps and measuring screenshot layout differences |
-| `@replica-entrepreneur` | researching public user reviews to identify complaints, missing features, improvements and positioning for an independent alternative |
-| `@replica-brand` | naming and rebranding an app clone with its own identity, palette, logo brief, voice and original-brand remnant checks |
-| `@replica-launch` | preparing a clone landing page, pricing, app store listing and evidence-based launch plan |
-| `@replica-deploy` | deploying a rebranded clone, checking production readiness, DNS, hosting, environment variables and mobile releases |
+One reverse-engineers the app you want to clone. One rebuilds it. One tests it
+for bugs. And one is the Entrepreneur: it reads what the app's users hate and
+fixes it in yours, so you have an app you can sell.
 
-## Use
+In between, the others plan the stack and the database, rebuild the design
+system, wire up auth and payments, score your clone against the original, give
+it a name and a brand of its own, write the landing page and the store
+listing, and put it live on your domain.
 
-In ChatGPT with Skills support, provide this repository URL and ask to install the eleven `replica-*` skill folders. Availability depends on your ChatGPT environment; this repository is not an OpenAI MCP connector or a Claude plugin.
+**It rebuilds what an app does, never what it owns.** Features and flows,
+clean-room style. Not its code, its logo, its copy or its content. The
+fine print is at the bottom, and the skills enforce it.
 
-Then request a skill by name, for example:
+## Install
 
-> @replica-recon Map this scheduling app’s core booking flow from public documentation.
+In ChatGPT with Skills support, paste:
 
-> @replica-diff Compare my implementation against the feature matrix.
+```
+https://github.com/JohnTravolta76/Replica-Skill-ChatGPT
 
-For Codex, copy the eleven `replica-*` folders into your user skill directory, typically `~/.codex/skills/`, without replacing existing folders. In Codex interfaces supporting dollar invocation, use `$replica-recon`. Skills can also be supplied as instructions in a chat, but Python tools require an execution environment.
+Install all eleven replica-* skills individually.
+```
 
-Run in order for a complete project: recon, architect, design, build, backend, test, diff, entrepreneur, brand, launch, deploy. Each can also run independently when its prerequisites are available. Project evidence lives in `replica/` in your app project.
+Skills availability depends on your ChatGPT environment. This is a collection of skills, not an MCP connector or a Claude plugin.
 
-## Tools
-
-Python 3.8 or newer; standard library only, no API keys and no network calls from these tools. Run from this repository, using your project’s absolute input paths if it lives elsewhere:
+For Codex, copy the folders into your user skill directory:
 
 ```bash
-python3 replica-diff/parity.py /path/to/project/replica/features.csv
-python3 replica-diff/imgdiff.py original.png clone.png --out diff.png
-python3 replica-design/contrast.py /path/to/project/replica/design/tokens.json
-python3 replica-entrepreneur/reviews.py /path/to/project/replica/reviews.csv
-python3 replica-brand/sweep.py /path/to/project --config /path/to/project/replica/brand.json
-python3 replica-launch/listing.py /path/to/project/replica/launch/listing.json
+git clone https://github.com/JohnTravolta76/Replica-Skill-ChatGPT.git
+cp -r Replica-Skill-ChatGPT/replica-* ~/.codex/skills/
+```
+
+Use `@replica-recon` in ChatGPT, or `$replica-recon` in Codex interfaces that support it. Ask by the skill's name if your interface uses a skill picker.
+
+No Skills support? Paste any single `SKILL.md` at the top of a chat and use it as instructions. Python tools require an execution environment.
+
+The tools need Python 3.8 or newer. Nothing to pip install.
+
+## The eleven
+
+| command | what it does |
+| --- | --- |
+| `@replica-recon` | Reverse-engineers any app: screens, flows, components, data model. From public pages, screenshots, store listings and your own account. |
+| `@replica-architect` | Plans the stack, database schema and API for your clone. |
+| `@replica-design` | Rebuilds the design system: colours, type, spacing, components. As tokens, with your own assets. |
+| `@replica-build` | Rebuilds the app screen by screen from the recon map. |
+| `@replica-backend` | Auth, database, payments and integrations. |
+| `@replica-test` | Clicks through every flow and tests it for bugs. |
+| `@replica-diff` | Compares your clone against the original. A parity score and what is missing. |
+| `@replica-entrepreneur` | Reads what the app's users hate in real reviews and turns it into fixes and a positioning angle. |
+| `@replica-brand` | Names and rebrands your version so it is yours. |
+| `@replica-launch` | Landing page, pricing and App Store listing. |
+| `@replica-deploy` | Ships it live on your own domain. |
+
+## How to use it
+
+Run them in order. Each one reads what the last one wrote, in a `replica/`
+folder in your project.
+
+```
+recon -> architect -> design -> build -> backend -> test -> diff -> entrepreneur -> brand -> launch -> deploy
+```
+
+An example: cloning a scheduling app, the kind where you share a link and
+people book a time with you.
+
+1. **`@replica-recon`** with the app's URL. It reads the help center, the
+   pricing page, the store listing and public walkthroughs, and you click
+   through your own account with it. Out comes `replica/recon.md`: 18
+   screens, 7 flows (guest books a meeting, host sets availability, guest
+   reschedules...), the components, an inferred data model (users, event
+   types, availability, bookings) and `features.csv`. The partner
+   marketplace is marked out of scope: that is their network, not a feature.
+2. **`@replica-architect`** picks Next.js, Postgres, Stripe and Resend, writes
+   the schema (with a constraint so two guests can never book the same slot)
+   and orders the build: the booking flow end to end first.
+3. **`@replica-design`** measures the screenshots into tokens: colour roles,
+   type scale, 8px spacing, the date picker and slot button specs. Open
+   icons, an open font, your own words.
+4. **`@replica-build`** builds the shell, then the booking flow, then every
+   screen with all its states, ticking off `features.csv` as it goes.
+5. **`@replica-backend`** adds sign up, Google Calendar through Google's own
+   API with your keys, Stripe for paid bookings, reminder emails.
+6. **`@replica-test`** writes a test plan from the 7 flows, Playwright specs
+   for the happy paths and edge cases (time zones, a slot taken mid-booking,
+   double submit), and logs bugs by severity until no S1 or S2 is open.
+7. **`@replica-diff`** scores it. Features 86, all must-haves done, booking
+   page layout 91. Missing: round-robin for teams, the website embed.
+8. **`@replica-entrepreneur`** reads 140 real reviews across the App Store,
+   G2, Capterra and Reddit. Top complaints: per-seat price jumps, no text
+   reminders, guests confused by time zones. Each with counts and linked
+   quotes. Fix plan: flat pricing, SMS reminders, a time zone confirm step.
+   Angle: booking links for small teams that hate per-seat pricing.
+9. **`@replica-brand`** names it (with the trademark and domain checks to
+   run), gives it a new palette, a logo brief and a voice, then sweeps the
+   codebase until nothing of the original is left.
+10. **`@replica-launch`** writes the landing page around the angle, sets
+    pricing against the original's public page, and lints the store listing.
+11. **`@replica-deploy`** runs the preflight (tests, parity, sweep, listing),
+    sets up production, gives you the DNS records for your domain, and ships
+    it when you say go.
+
+You can also run any one on its own. `@replica-entrepreneur` on an app you
+are only thinking about cloning is a good way to find out if you should.
+
+## The tools
+
+Six of them, all standard-library Python. None touch the network.
+
+```bash
+python3 replica-diff/imgdiff.py original.png clone.png --out diff.png   # layout diff, ignores colour
+python3 replica-diff/parity.py replica/features.csv                     # parity score + missing list
+python3 replica-entrepreneur/reviews.py replica/reviews.csv             # what users hate, ranked, linked
+python3 replica-design/contrast.py replica/design/tokens.json           # WCAG contrast on your tokens
+python3 replica-brand/sweep.py . --avoid "Original App"                 # anything of the original left?
+python3 replica-launch/listing.py replica/launch/listing.json           # store limits + copycat checks
+```
+
+**`imgdiff.py`** reads PNGs with no libraries, turns both screenshots into
+edge maps and compares where things are, so your new colours do not count
+against you. It tells you which regions differ, in the original's pixels.
+
+**`parity.py`** weights must, should and could, counts partial as half, and
+never scores what you left out on purpose or what you added. Missing
+must-haves means not shippable, and it says so.
+
+**`reviews.py`** drops every review without a link. Every quote it prints is
+copied from a row you gave it, with that row's URL. Themes with under three
+reviews or one source are marked thin.
+
+**`sweep.py`** finds the original's name, domain and colours anywhere in your
+code, including inside identifiers like `OriginalAppEmbed`, and blocks the
+deploy until it is clean.
+
+**`listing.py`** checks App Store and Google Play limits, ranking claims in
+the title, wasted keyword characters, and the original's name anywhere in
+your listing.
+
+```bash
 python3 -m unittest discover -s tests -v
 ```
 
-A partial must-have blocks shipping. Missing screenshots leave visual parity unassessed. A shipping verdict also requires verified core flows and no open S1/S2 bugs. Static tools do not prove runtime readiness.
+## Fine print
 
-## ChatGPT adaptations
+**It rebuilds functionality and UX patterns, clean-room style.** It studies
+what the app does and how people move through it, then writes everything
+fresh. It never copies the target's source code, proprietary assets, logos,
+trademarks, copy or private APIs.
 
-Each folder has its own SKILL.md and agents/openai.yaml. Templates and tools remain beside their relevant skill, matching the original repository’s split. Each skill includes the ChatGPT execution contract so individual installation retains the guidance. Cross-skill dependencies resolve by skill name rather than assuming neighboring installed folder names.
+**It only reads what you are allowed to read.** Public pages and your own
+account. It never scrapes behind a login or against a site's terms, never
+logs into anyone else's account, and never gets past a paywall. If your
+account's terms forbid using it to build a competitor, it says so and sticks
+to public sources.
 
-Use available research, browser and repository tools under their actual access rules. Use Sites skills for complete website work where applicable; preserve existing native or web stacks. Verify current provider and store requirements. Continue within user authorization, keep credentials private, and never invent reviews, checks or scores.
+**It always rebrands before launch.** New name, new palette, new logo, new
+words. `@replica-deploy` will not ship until the sweep is clean.
 
-## Scope and license
+**"Clone any app" means the features and the flow.** Not the content, the
+network or the licences an app owns. You can rebuild a music app's player,
+playlists and sharing. You cannot clone its catalogue.
 
-Study public evidence and authorized views. Rebuild behavior with fresh implementation. Do not copy proprietary source, private APIs, trademarks, logos, licensed content or competitor copy. Reviews are research, not testimonials.
+**No guarantee of a "perfect" clone.** Results depend on how complex the app
+is. A booking tool is weeks. A spreadsheet engine is not. `@replica-recon`
+sizes it honestly before you start, and `@replica-diff` gives you a real
+number, not a vibe.
 
-Original work: Copyright (c) 2026 Jake Schincariol, MIT License. Original source revision: `77c9436fb3d18c3d58169efb8caf4fe906b0dc51`. This is an independent ChatGPT adaptation, not an official OpenAI product or a claim of affiliation with the original author. See [LICENSE](LICENSE).
+**The Entrepreneur never makes things up.** No invented reviews, quotes or
+numbers. Every claim has a link, and the sample size is stated.
+
+**Check before you sell.** Run the trademark checks `@replica-brand` lists,
+read the terms of anything you used, and talk to a lawyer before launch if
+there is money on the line. This is not legal advice.
+
+## Files
+
+```
+replica-recon/         SKILL.md, recon-map.md, features.csv (the matrix template)
+replica-architect/     SKILL.md, architecture.md
+replica-design/        SKILL.md, tokens.json, contrast.py
+replica-build/         SKILL.md
+replica-backend/       SKILL.md
+replica-test/          SKILL.md, test-plan.md, bug-report.md, e2e.example.spec.ts
+replica-diff/          SKILL.md, imgdiff.py, parity.py
+replica-entrepreneur/  SKILL.md, reviews.py, themes.json
+replica-brand/         SKILL.md, sweep.py
+replica-launch/        SKILL.md, listing.py, listing.example.json
+replica-deploy/        SKILL.md, preflight.md
+tests/                 the tests for every tool
+```
+
+Each skill also includes `agents/openai.yaml` for ChatGPT/Codex metadata and a copy of LICENSE.
+
+Your own files live in `replica/` in your project. The skills read each
+other's.
+
+## Credit
+
+Original Replica skills, tools, templates, and README by Jake Schincariol.
+ChatGPT/Codex adaptation maintained in [JohnTravolta76/Replica-Skill-ChatGPT](https://github.com/JohnTravolta76/Replica-Skill-ChatGPT).
+Original source: [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill), revision `77c9436fb3d18c3d58169efb8caf4fe906b0dc51`.
+
+Made by Jake Schincariol, [opusjake.ai](https://opusjake.ai). Siblings:
+[Arena](https://github.com/Jakeschincariol/arena-skill),
+[X](https://github.com/Jakeschincariol/x-agent-skill),
+[LinkedIn](https://github.com/Jakeschincariol/linkedin-agent-skill),
+[Instagram](https://github.com/Jakeschincariol/instagram-agent-skill).
+
+## License
+
+MIT. Take it, change it, ship it.
+
+The original copyright and permission notice are preserved in [LICENSE](LICENSE) and in each independently installable skill folder. Retain them when distributing copies or adaptations.
+

@@ -2,3 +2,4 @@ interface:
   display_name: "Replica Test"
   short_description: "testing an app clone, checking its user flows, reproducing b"
   default_prompt: "Use $replica-test for the test stage of my independent app."
+

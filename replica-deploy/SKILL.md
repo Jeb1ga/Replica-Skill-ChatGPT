@@ -1,6 +1,13 @@
 ---
 name: replica-deploy
-description: Use when deploying a rebranded clone, checking production readiness, DNS, hosting, environment variables and mobile releases.
+description: >-
+  Ships an app clone live on the user's own domain: a preflight gate (tests
+  green, parity must-haves done, rebrand sweep clean, listing linted, legal
+  pages up), production database and env vars, the host, DNS records for the
+  domain and for email, Stripe live mode, OAuth redirects, monitoring, and
+  mobile builds to TestFlight and Play. Use when the user says "deploy it",
+  "ship it", "put it live", "connect my domain", "go to production",
+  "publish the app", or after @replica-launch.
 ---
 
 # replica-deploy
@@ -10,7 +17,7 @@ Reads everything in `replica/`. Writes `replica/deploy.md` (the checklist in
 
 ## The rules
 
-- **Use existing authorization.** Finish and show the preflight before publishing. If the user already requested deployment, continue within that scope. Ask before any new unrequested purchase or production action.
+- **Nothing goes live without the user's go.** Show the preflight results. An existing explicit deployment request supplies authorization; ask before any additional unrequested production action.
 - **The user buys and signs in.** ChatGPT never buys a domain, enters a card,
   types a password or pastes a live key. ChatGPT writes the exact DNS records,
   env var names and commands; the user does the account steps.
@@ -28,7 +35,7 @@ python3 <replica-launch-root>/listing.py replica/launch/listing.json     # if sh
 npm run build                                                        # production build passes
 ```
 
-Resolve each named skill root to its actual location; do not depend on the shell working directory.
+Resolve each named skill root independently to its installed folder.
 
 Plus by hand: no open S1 or S2 bugs, privacy policy and terms pages live
 (listing every processor), cookie banner if you use non-essential cookies in
@@ -93,21 +100,12 @@ for Google). Beta first, then review with the listing from replica-launch.
 records set, and what to watch in the first week. The clone is now an app
 with your name on it.
 
+## ChatGPT compatibility
 
-## ChatGPT execution contract
+Use available tools under their actual access and credential rules. Research public information with web search; interact with accounts only when authorized. Never invent reviews, screenshots, test results or parity scores. Follow quotation limits. Verify current provider, store and hosting requirements. Preserve the user's existing stack; use Sites skills for complete websites when applicable.
 
+Resolve `<skill-root>` to this skill's installed folder. Resolve another named skill independently through the skill catalog; do not assume installed folders stay adjacent. Run tools with Python from the app project directory. Templates remain beside SKILL.md; copy them into the project before customizing. Keep repository work in its repository; use Library for standalone deliverables when available.
 
-Apply these adaptations throughout this workflow:
+A partial must-have blocks shipping. Without screenshots, mark layout unassessed. Tool scores alone do not establish readiness. Complete authorized work without repeated confirmations; prepare preflight before requesting any new production authorization. Real purchases and outreach require explicit permission.
 
-- Discover available tools. Use web search for public research and current facts, GitHub for repository work, and browser interaction under its access rules. Never invent tools, visits, screenshots, reviews or checks.
-- Use Sites building and hosting skills for complete websites when applicable. Preserve existing repository stacks, including native Kotlin or Swift. Verify current API, pricing, store and hosting requirements from official sources; reference defaults and lint limits are starting points.
-- Study public pages, screenshots, docs and authorized account views. Write implementation fresh. Exclude proprietary code, private endpoints, target identity and licensed content.
-- Resolve `<skill-root>` to this skill's actual directory. Run Python tools with `python3 <skill-root>/<tool>.py` from the project directory. Run `--help` for exact arguments. Tools use the standard library. Templates and tools are in this skill folder; themes.json is beside reviews.py. Copy templates into the project before editing; leave installed resources unchanged.
-- Keep project evidence in `replica/`. Save standalone deliverables with the Library skill. Keep repository-backed project files in their repository.
-- Preserve source links, collection dates, sample sizes and uncertainty. Follow quotation limits; use short cited excerpts rather than redistributing whole reviews. Never use competitor reviews as testimonials.
-- Record features as yes, partial, no or skip with reasons. A partial must-have blocks shipping. Missing screenshots mean no measured layout score. A final shippable verdict also requires verified core flows, feature score 80+, and no open S1/S2 bugs. Scores alone do not establish readiness.
-- Use test credentials and payment test mode. Keep secrets out of chat, output and tracked files. Follow the account and credential handling rules of actual tools.
-- Complete authorized work without repeated confirmations. Finish a reviewable preflight before asking for any new approval. Publish within existing authorization. Do not send outreach, buy domains or make real purchases without explicit authorization.
-
-
-For tools belonging to another stage, resolve that named skill independently from the installed skill catalog, or use the sibling folder in this source repository. Do not assume installed skills retain neighboring folder names. If the other skill is unavailable, report that dependency and continue independent work.
+Adapted from Jake Schincariol's [Replica](https://github.com/Jakeschincariol/replica-skill), MIT licensed. Retain the included LICENSE.

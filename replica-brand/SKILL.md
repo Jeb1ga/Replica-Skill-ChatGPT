@@ -1,6 +1,13 @@
 ---
 name: replica-brand
-description: Use when naming and rebranding an app clone with its own identity, palette, logo brief, voice and original-brand remnant checks.
+description: >-
+  Names and rebrands an app clone so it is the user's own: name candidates
+  with the trademark, domain, store and handle checks to run, a new palette
+  checked for contrast, a logo brief, a voice guide, and a sweep tool that
+  finds anything of the original left in the codebase. Use when the user says
+  "name my app", "rebrand the clone", "make it mine", "pick a name and
+  colours", "logo brief", "brand voice", "check for leftovers", or after
+  @replica-entrepreneur. Always runs before @replica-launch.
 ---
 
 # replica-brand
@@ -8,7 +15,7 @@ description: Use when naming and rebranding an app clone with its own identity, 
 Nothing launches under the original's identity. This skill is the line
 between "a clone" and "your app".
 
-Bundled tool in this skill folder:
+Tool in this folder:
 
 ```bash
 python3 <skill-root>/sweep.py . --avoid "Original Name,Its Company" --domains original.com --colors "#006bff"
@@ -102,21 +109,12 @@ the page titles, the email templates, the OG image, the app icon.
 `replica/brand.json`, updated tokens, rewritten strings, and a clean sweep.
 Next: `@replica-launch`.
 
+## ChatGPT compatibility
 
-## ChatGPT execution contract
+Use available tools under their actual access and credential rules. Research public information with web search; interact with accounts only when authorized. Never invent reviews, screenshots, test results or parity scores. Follow quotation limits. Verify current provider, store and hosting requirements. Preserve the user's existing stack; use Sites skills for complete websites when applicable.
 
+Resolve `<skill-root>` to this skill's installed folder. Resolve another named skill independently through the skill catalog; do not assume installed folders stay adjacent. Run tools with Python from the app project directory. Templates remain beside SKILL.md; copy them into the project before customizing. Keep repository work in its repository; use Library for standalone deliverables when available.
 
-Apply these adaptations throughout this workflow:
+A partial must-have blocks shipping. Without screenshots, mark layout unassessed. Tool scores alone do not establish readiness. Complete authorized work without repeated confirmations; prepare preflight before requesting any new production authorization. Real purchases and outreach require explicit permission.
 
-- Discover available tools. Use web search for public research and current facts, GitHub for repository work, and browser interaction under its access rules. Never invent tools, visits, screenshots, reviews or checks.
-- Use Sites building and hosting skills for complete websites when applicable. Preserve existing repository stacks, including native Kotlin or Swift. Verify current API, pricing, store and hosting requirements from official sources; reference defaults and lint limits are starting points.
-- Study public pages, screenshots, docs and authorized account views. Write implementation fresh. Exclude proprietary code, private endpoints, target identity and licensed content.
-- Resolve `<skill-root>` to this skill's actual directory. Run Python tools with `python3 <skill-root>/<tool>.py` from the project directory. Run `--help` for exact arguments. Tools use the standard library. Templates and tools are in this skill folder; themes.json is beside reviews.py. Copy templates into the project before editing; leave installed resources unchanged.
-- Keep project evidence in `replica/`. Save standalone deliverables with the Library skill. Keep repository-backed project files in their repository.
-- Preserve source links, collection dates, sample sizes and uncertainty. Follow quotation limits; use short cited excerpts rather than redistributing whole reviews. Never use competitor reviews as testimonials.
-- Record features as yes, partial, no or skip with reasons. A partial must-have blocks shipping. Missing screenshots mean no measured layout score. A final shippable verdict also requires verified core flows, feature score 80+, and no open S1/S2 bugs. Scores alone do not establish readiness.
-- Use test credentials and payment test mode. Keep secrets out of chat, output and tracked files. Follow the account and credential handling rules of actual tools.
-- Complete authorized work without repeated confirmations. Finish a reviewable preflight before asking for any new approval. Publish within existing authorization. Do not send outreach, buy domains or make real purchases without explicit authorization.
-
-
-For tools belonging to another stage, resolve that named skill independently from the installed skill catalog, or use the sibling folder in this source repository. Do not assume installed skills retain neighboring folder names. If the other skill is unavailable, report that dependency and continue independent work.
+Adapted from Jake Schincariol's [Replica](https://github.com/Jakeschincariol/replica-skill), MIT licensed. Retain the included LICENSE.

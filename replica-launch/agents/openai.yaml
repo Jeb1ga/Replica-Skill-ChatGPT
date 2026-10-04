@@ -2,3 +2,4 @@ interface:
   display_name: "Replica Launch"
   short_description: "preparing a clone landing page, pricing, app store listing a"
   default_prompt: "Use $replica-launch for the launch stage of my independent app."
+
