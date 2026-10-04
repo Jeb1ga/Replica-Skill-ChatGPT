@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replica Design"
+  short_description: "rebuilding a clone design system, defining color roles, type"
+  default_prompt: "Use $replica-design for the design stage of my independent app."

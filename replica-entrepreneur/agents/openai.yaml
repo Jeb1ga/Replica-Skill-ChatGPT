@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replica Entrepreneur"
+  short_description: "researching public user reviews to identify complaints, miss"
+  default_prompt: "Use $replica-entrepreneur for the entrepreneur stage of my independent app."

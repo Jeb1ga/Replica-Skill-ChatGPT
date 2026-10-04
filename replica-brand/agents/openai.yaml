@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replica Brand"
+  short_description: "naming and rebranding an app clone with its own identity, pa"
+  default_prompt: "Use $replica-brand for the brand stage of my independent app."

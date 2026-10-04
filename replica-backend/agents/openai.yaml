@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replica Backend"
+  short_description: "adding auth, database access rules, payments, email, jobs an"
+  default_prompt: "Use $replica-backend for the backend stage of my independent app."

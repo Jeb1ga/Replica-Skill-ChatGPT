@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replica Build"
+  short_description: "implementing a clone from recon and design specs, building i"
+  default_prompt: "Use $replica-build for the build stage of my independent app."

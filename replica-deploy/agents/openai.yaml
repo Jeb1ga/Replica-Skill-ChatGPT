@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replica Deploy"
+  short_description: "deploying a rebranded clone, checking production readiness,"
+  default_prompt: "Use $replica-deploy for the deploy stage of my independent app."

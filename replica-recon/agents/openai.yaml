@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replica Recon"
+  short_description: "rebuilding an app and mapping its screens, flows, components"
+  default_prompt: "Use $replica-recon for the recon stage of my independent app."

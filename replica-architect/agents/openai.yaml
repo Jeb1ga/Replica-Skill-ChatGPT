@@ -1,0 +1,4 @@
+interface:
+  display_name: "Replica Architect"
+  short_description: "planning a clone from its recon map, choosing a stack, datab"
+  default_prompt: "Use $replica-architect for the architect stage of my independent app."
